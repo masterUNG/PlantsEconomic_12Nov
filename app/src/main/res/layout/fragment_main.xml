@@ -36,6 +36,7 @@
 
             <!--Email-->
             <EditText
+                android:textColorHint="@color/colorPrimaryLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
@@ -59,6 +60,7 @@
 
             <!--Password-->
             <EditText
+                android:textColorHint="@color/colorPrimaryLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
@@ -67,11 +69,44 @@
 
         </LinearLayout>
 
-        <!--SigIn Button-->
-        <Button
+        <!--Login with-->
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:text="Login With"
+            android:textSize="@dimen/h2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--Icon social-->
+        <LinearLayout
+            android:padding="16dp"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/sign_in" />
+            android:layout_height="wrap_content">
+
+            <!--FaceBook-->
+            <ImageView
+                android:src="@drawable/ic_facebook"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!--Google-->
+            <ImageView
+                android:src="@drawable/ic_google_plus"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <!--twitter-->
+            <ImageView
+                android:src="@drawable/ic_twitter"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
 
         <!--Register-->
         <TextView
@@ -86,5 +121,13 @@
             android:textStyle="italic" />
 
     </LinearLayout>
+
+
+    <!--SigIn Button-->
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sign_in" />
 
 </RelativeLayout>
