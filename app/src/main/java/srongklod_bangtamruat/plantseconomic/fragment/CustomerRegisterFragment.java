@@ -1,9 +1,11 @@
 package srongklod_bangtamruat.plantseconomic.fragment;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,13 +62,45 @@ public class CustomerRegisterFragment extends Fragment {
                             getResources().getString(R.string.massage_have_space));
                 } else {
 //                    NO Space
-
+                    confirmValue();
                 }
 
 
 
             }//On Click
         });
+
+    }
+
+    private void confirmValue() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setIcon(R.drawable.ic_action_upload);
+        builder.setCancelable(false);
+        builder.setTitle("please Confirm Value");
+        builder.setMessage("Name = " + nameString + "\n" +
+                "Surname = " + surNameString + "\n" +
+                "Email = " + emailString + "\n" +
+                "Password = " + passwordString + "\n" +
+                "Phone = " + phoneString);
+        builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setPositiveButton("Confrim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                uploadValueFirebase();
+                dialogInterface.dismiss();
+            }
+        });
+        builder.show();
+
+    }//ConfirmValue
+
+    private void uploadValueFirebase() {
 
     }
 
