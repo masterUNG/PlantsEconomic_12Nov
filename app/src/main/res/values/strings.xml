@@ -4,5 +4,7 @@
     <string name="password">Password :</string>
     <string name="sign_in">Sign In</string>
     <string name="register">New Register</string>
-
+    <string name="Customer">Customer</string>
+    <string name="supplier">Supplier</string>
+    <string name="Transport">Transport</string>
 </resources>

@@ -21,4 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     }//onCreate
 
+    @Override
+    public void onBackPressed() {
+
+    }//cannotCall back
 }//Main Class
