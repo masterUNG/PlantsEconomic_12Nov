@@ -28,7 +28,7 @@
 
                     <!--icon-->
                     <ImageView
-                        android:src="@drawable/ic_action_password"
+                        android:src="@drawable/ic_action_name"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -48,7 +48,7 @@
 
                     <!--icon-->
                     <ImageView
-                        android:src="@drawable/ic_action_password"
+                        android:src="@drawable/ic_action_lastname"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -108,7 +108,7 @@
 
                     <!--icon-->
                     <ImageView
-                        android:src="@drawable/ic_action_password"
+                        android:src="@drawable/ic_action_phone"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />

@@ -11,4 +11,10 @@
     <string name="lastname">Lastname :</string>
     <string name="phone_66812345678">Phone +66812345678</string>
     <string name="save">SAVE</string>
+    <string name="company_name">Company Name :</string>
+    <string name="address">Address :</string>
+    <string name="fax_6612345678">Fax : +6612345678</string>
+    <string name="telephone_021234567">Telephone : +021234567</string>
+    <string name="business">Business : ผลิต พืชเศรษฐกิจ</string>
+    <string name="head_quarter">Head Quarter :</string>
 </resources>
