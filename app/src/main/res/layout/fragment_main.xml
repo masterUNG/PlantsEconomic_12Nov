@@ -5,10 +5,10 @@
 
     <!--Content-->
     <LinearLayout
-        android:background="@drawable/logoi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
+        android:background="@drawable/logoi"
         android:orientation="vertical">
 
         <!--AppName-->
@@ -36,12 +36,12 @@
 
             <!--Email-->
             <EditText
-                android:textColorHint="@color/colorPrimaryLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryLight" />
 
         </LinearLayout>
 
@@ -60,50 +60,50 @@
 
             <!--Password-->
             <EditText
-                android:textColorHint="@color/colorPrimaryLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textColor="@color/colorPrimaryDark" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryLight" />
 
         </LinearLayout>
 
         <!--Login with-->
         <TextView
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Login With"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/h2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textStyle="bold" />
 
         <!--Icon social-->
         <LinearLayout
-            android:padding="16dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
 
             <!--FaceBook-->
             <ImageView
-                android:src="@drawable/ic_facebook"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_facebook" />
             <!--Google-->
             <ImageView
-                android:src="@drawable/ic_google_plus"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_google_plus" />
             <!--twitter-->
             <ImageView
-                android:src="@drawable/ic_twitter"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/ic_twitter" />
 
         </LinearLayout>
 
@@ -111,10 +111,10 @@
         <!--Register-->
         <TextView
             android:id="@+id/txtRegister"
-            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:clickable="true"
             android:text="@string/register"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/h2"
@@ -122,12 +122,11 @@
 
     </LinearLayout>
 
-
     <!--SigIn Button-->
     <Button
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:text="@string/sign_in" />
 
 </RelativeLayout>

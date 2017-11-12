@@ -7,4 +7,8 @@
     <string name="Customer">Customer</string>
     <string name="supplier">Supplier</string>
     <string name="Transport">Transport</string>
+    <string name="name">Name :</string>
+    <string name="lastname">Lastname :</string>
+    <string name="phone_66812345678">Phone +66812345678</string>
+    <string name="save">SAVE</string>
 </resources>
