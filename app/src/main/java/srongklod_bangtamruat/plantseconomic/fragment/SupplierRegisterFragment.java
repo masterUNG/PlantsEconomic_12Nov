@@ -65,7 +65,7 @@ public class SupplierRegisterFragment extends Fragment {
                             getResources().getString(R.string.massage_have_space));
                 } else {
 //                    No Space
-
+                    confirmValue();
                 }
 
 
