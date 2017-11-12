@@ -30,7 +30,7 @@
 
                     <!--icon-->
                     <ImageView
-                        android:src="@drawable/ic_action_name"
+                        android:src="@drawable/ic_action_company"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -51,7 +51,7 @@
 
                     <!--icon-->
                     <ImageView
-                        android:src="@drawable/ic_action_name"
+                        android:src="@drawable/ic_action_address"
                         android:layout_gravity="start"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -74,7 +74,7 @@
 
                     <!--icon-->
                     <ImageView
-                        android:src="@drawable/ic_action_name"
+                        android:src="@drawable/ic_action_fax"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -95,7 +95,7 @@
 
                     <!--icon-->
                     <ImageView
-                        android:src="@drawable/ic_action_name"
+                        android:src="@drawable/ic_action_telephone"
                         android:layout_gravity="center_vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />

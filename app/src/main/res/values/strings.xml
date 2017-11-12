@@ -17,4 +17,10 @@
     <string name="telephone_021234567">Telephone : +021234567</string>
     <string name="business">Business : ผลิต พืชเศรษฐกิจ</string>
     <string name="head_quarter">Head Quarter :</string>
+    <string name="branch">Branch :</string>
+
+    <string name="title_have_space">Have Space</string>
+    <string name="massage_have_space">Please Fill All Every Blank</string>
+
+
 </resources>
