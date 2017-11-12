@@ -36,6 +36,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtCompanyName"
                         android:inputType="text"
                         android:hint="@string/company_name"
                         android:layout_width="match_parent"
@@ -57,6 +58,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtAddress"
                         android:inputType="textMultiLine"
                         android:gravity="start"
                         android:lines="5"
@@ -80,6 +82,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtFax"
                         android:inputType="phone"
                         android:hint="@string/fax_6612345678"
                         android:layout_width="match_parent"
@@ -101,6 +104,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtTelephone"
                         android:inputType="phone"
                         android:hint="@string/telephone_021234567"
                         android:layout_width="match_parent"
@@ -122,6 +126,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtBusiness"
                         android:inputType="textMultiLine"
                         android:lines="3"
                         android:gravity="start"
@@ -145,6 +150,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtEmail"
                         android:inputType="textEmailAddress"
                         android:hint="@string/email"
                         android:layout_width="match_parent"
@@ -166,6 +172,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtPassword"
                         android:inputType="textPassword"
                         android:hint="@string/password"
                         android:layout_width="match_parent"
@@ -187,6 +194,7 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:id="@+id/edtHead"
                         android:gravity="start"
                         android:lines="3"
                         android:inputType="textMultiLine"
