@@ -90,7 +90,6 @@ public class SupplierRegisterFragment extends Fragment {
         "Password = "+passwordString+"\n"+
         "Head Quarters = "+headQuartersString);
 
-
         builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
