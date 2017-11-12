@@ -4,156 +4,169 @@
     android:layout_height="match_parent">
 
     <!--Content-->
-    <LinearLayout
-        android:background="@color/bg"
-        android:orientation="vertical"
-        android:padding="@dimen/margin"
-        android:layout_margin="@dimen/margin"
+    <ScrollView
+        android:layout_above="@id/btnSaveCustomer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!--Name-->
-        <LinearLayout
-            android:orientation="horizontal"
+        android:layout_height="match_parent">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
-            <!--icon-->
-            <ImageView
-                android:src="@drawable/ic_action_password"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <!--textField-->
-            <EditText
-                android:inputType="text"
-                android:hint="@string/name"
+            <LinearLayout
+                android:background="@color/bg"
+                android:orientation="vertical"
+                android:padding="@dimen/margin"
+                android:layout_margin="@dimen/margin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
 
-        </LinearLayout>
-        <!--Surname-->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <!--Name-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <!--icon-->
-            <ImageView
-                android:src="@drawable/ic_action_password"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <!--textField-->
-            <EditText
-                android:inputType="text"
-                android:hint="@string/lastname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    <!--icon-->
+                    <ImageView
+                        android:src="@drawable/ic_action_password"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <!--textField-->
+                    <EditText
+                        android:inputType="text"
+                        android:hint="@string/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-        </LinearLayout>
-        <!--Email-->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                </LinearLayout>
+                <!--Surname-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <!--icon-->
-            <ImageView
-                android:src="@drawable/ic_action_email"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <!--textField-->
-            <EditText
-                android:inputType="textEmailAddress"
-                android:hint="@string/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    <!--icon-->
+                    <ImageView
+                        android:src="@drawable/ic_action_password"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <!--textField-->
+                    <EditText
+                        android:inputType="text"
+                        android:hint="@string/lastname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-        </LinearLayout>
-        <!--PassWord-->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                </LinearLayout>
+                <!--Email-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <!--icon-->
-            <ImageView
-                android:src="@drawable/ic_action_password"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <!--textField-->
-            <EditText
-                android:inputType="textPassword"
-                android:hint="@string/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    <!--icon-->
+                    <ImageView
+                        android:src="@drawable/ic_action_email"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <!--textField-->
+                    <EditText
+                        android:inputType="textEmailAddress"
+                        android:hint="@string/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-        </LinearLayout>
-        <!--Phone-->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                </LinearLayout>
+                <!--PassWord-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <!--icon-->
-            <ImageView
-                android:src="@drawable/ic_action_password"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <!--textField-->
-            <EditText
-                android:inputType="phone"
-                android:hint="@string/phone_66812345678"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                    <!--icon-->
+                    <ImageView
+                        android:src="@drawable/ic_action_password"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <!--textField-->
+                    <EditText
+                        android:inputType="textPassword"
+                        android:hint="@string/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-        </LinearLayout>
+                </LinearLayout>
+                <!--Phone-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_margin="@dimen/margin"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:textSize="@dimen/h2"
-            android:text="or"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+                    <!--icon-->
+                    <ImageView
+                        android:src="@drawable/ic_action_password"
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <!--textField-->
+                    <EditText
+                        android:inputType="phone"
+                        android:hint="@string/phone_66812345678"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-        <!--Icon social-->
-        <LinearLayout
-            android:padding="16dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                </LinearLayout>
 
-            <!--FaceBook-->
-            <ImageView
-                android:src="@drawable/ic_facebook"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <!--Google-->
-            <ImageView
-                android:src="@drawable/ic_google_plus"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <!--twitter-->
-            <ImageView
-                android:src="@drawable/ic_twitter"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_margin="@dimen/margin"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/h2"
+                    android:text="or"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-        </LinearLayout>
+                <!--Icon social-->
+                <LinearLayout
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    </LinearLayout>
+                    <!--FaceBook-->
+                    <ImageView
+                        android:src="@drawable/ic_facebook"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <!--Google-->
+                    <ImageView
+                        android:src="@drawable/ic_google_plus"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                    <!--twitter-->
+                    <ImageView
+                        android:src="@drawable/ic_twitter"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
     <!--Button Save-->
     <Button
+        android:id="@+id/btnSaveCustomer"
         android:text="@string/save"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
