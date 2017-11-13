@@ -8,6 +8,7 @@
         android:layout_above="@id/btnSaveCustomer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -34,6 +35,8 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:textColorHint="@color/colorPrimaryLight"
+                        android:textSize="@dimen/h2"
                         android:id="@+id/edtName"
                         android:inputType="text"
                         android:hint="@string/name"
@@ -41,6 +44,7 @@
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
+
                 <!--Surname-->
                 <LinearLayout
                     android:orientation="horizontal"
@@ -55,6 +59,8 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:textColorHint="@color/colorPrimaryLight"
+                        android:textSize="@dimen/h2"
                         android:id="@+id/edtSurname"
                         android:inputType="text"
                         android:hint="@string/lastname"
@@ -62,6 +68,7 @@
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
+
                 <!--Email-->
                 <LinearLayout
                     android:orientation="horizontal"
@@ -76,6 +83,8 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:textColorHint="@color/colorPrimaryLight"
+                        android:textSize="@dimen/h2"
                         android:id="@+id/edtEmail"
                         android:inputType="textEmailAddress"
                         android:hint="@string/email"
@@ -83,6 +92,7 @@
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
+
                 <!--PassWord-->
                 <LinearLayout
                     android:orientation="horizontal"
@@ -97,6 +107,8 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:textSize="@dimen/h2"
+                        android:textColorHint="@color/colorPrimaryLight"
                         android:id="@+id/edtPassword"
                         android:inputType="textPassword"
                         android:hint="@string/password"
@@ -104,6 +116,7 @@
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
+
                 <!--Phone-->
                 <LinearLayout
                     android:orientation="horizontal"
@@ -118,6 +131,8 @@
                         android:layout_height="wrap_content" />
                     <!--textField-->
                     <EditText
+                        android:textSize="@dimen/h2"
+                        android:textColorHint="@color/colorPrimaryLight"
                         android:id="@+id/edtPhone"
                         android:inputType="phone"
                         android:hint="@string/phone_66812345678"
@@ -130,8 +145,9 @@
                     android:layout_margin="@dimen/margin"
                     android:textStyle="bold"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="@dimen/h2"
-                    android:text="or"
+                    android:textSize="@dimen/h1"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:text="@string/or"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -171,8 +187,12 @@
 
     <!--Button Save-->
     <Button
+        android:layout_margin="@dimen/margin"
         android:id="@+id/btnSaveCustomer"
         android:text="@string/save"
+        android:background="@color/bg"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/h1"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
