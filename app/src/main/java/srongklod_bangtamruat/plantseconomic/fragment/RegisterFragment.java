@@ -87,7 +87,7 @@ public class RegisterFragment extends Fragment{
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-             getActivity().getSupportFragmentManager().popBackStack();//back page frit
+             getActivity().getSupportFragmentManager().popBackStack();//back page fret
 
 
             }

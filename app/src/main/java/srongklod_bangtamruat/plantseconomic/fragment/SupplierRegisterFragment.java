@@ -21,7 +21,8 @@ import srongklod_bangtamruat.plantseconomic.utility.MyAlert;
 
 public class SupplierRegisterFragment extends Fragment {
     //    Explicit
-    private String companyString, addressString, faxString, telephoneString, businessString, emailString, passwordString, headQuartersString;
+    private String companyString, addressString, faxString, telephoneString,
+            businessString, emailString, passwordString, headQuartersString;
 
 
     @Override

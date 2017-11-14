@@ -83,13 +83,13 @@ public class CustomerRegisterFragment extends Fragment {
                 "Email = " + emailString + "\n" +
                 "Password = " + passwordString + "\n" +
                 "Phone = " + phoneString);
-        builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
             }
         });
-        builder.setPositiveButton("Confrim", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 uploadValueFirebase();
