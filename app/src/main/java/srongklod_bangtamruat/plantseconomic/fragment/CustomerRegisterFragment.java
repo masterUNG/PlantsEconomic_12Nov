@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import srongklod_bangtamruat.plantseconomic.R;
+import srongklod_bangtamruat.plantseconomic.utility.CustomerModel;
 import srongklod_bangtamruat.plantseconomic.utility.MyAlert;
 
 /**
@@ -27,8 +34,13 @@ import srongklod_bangtamruat.plantseconomic.utility.MyAlert;
 
 public class CustomerRegisterFragment extends Fragment {
     //    Explicit
-    private String nameString, surNameString, emailString, passwordString, phoneString;
+    private String nameString, surNameString, emailString,
+            passwordString, phoneString, uidUserString;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
+    private CustomerModel customerModel;
+    private FirebaseUser firebaseUser;
+    private UserProfileChangeRequest userProfileChangeRequest;
 
 
     @Override
@@ -73,7 +85,6 @@ public class CustomerRegisterFragment extends Fragment {
                 }
 
 
-
             }//On Click
         });
 
@@ -108,38 +119,84 @@ public class CustomerRegisterFragment extends Fragment {
     }//ConfirmValue
 
     private void uploadValueFirebase() {
+
 //        Add to Authentication
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseAuth.createUserWithEmailAndPassword(emailString,passwordString)
+        firebaseAuth.createUserWithEmailAndPassword(emailString, passwordString)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
 //                            Register Success
-                            Toast.makeText(getActivity(),"Register Success",
-                                    Toast.LENGTH_SHORT).show();
-                            getActivity().getSupportFragmentManager().popBackStack();
+                            registerSuccess();
+
                         } else {
 //                            Something Error
                             String resultError = task.getException().getMessage();
                             MyAlert myAlert = new MyAlert(getActivity());
-                            myAlert.nomalDialog("Cannot Register",resultError);
+                            myAlert.nomalDialog("Cannot Register", resultError);
+
                         }
 
-                    }//OnComplete
+                    }   // onComplete
                 });
 
-//        Add to database
+    }   // uploadValueFiebase
 
-    }//uploadValueFirebase
+    private void registerSuccess() {
+
+        final String tag = "27DecV1";
+
+//        Find uid of Current User
+        firebaseUser = firebaseAuth.getCurrentUser();
+        uidUserString = firebaseUser.getUid();
+        Log.d(tag, "uid User ==> " + uidUserString);
+
+//        Setup Model
+        customerModel = new CustomerModel(
+                uidUserString,
+                nameString,
+                surNameString,
+                phoneString);
+
+        userProfileChangeRequest = new UserProfileChangeRequest
+                .Builder()
+                .setDisplayName(nameString)
+                .build();
+
+        firebaseUser.updateProfile(userProfileChangeRequest).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                Log.d(tag, "onSuccess Work");
+
+//                Add to Database
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Customer");
+                databaseReference.child(uidUserString).setValue(customerModel);
+
+            }
+        });
+
+
+
+
+
+
+
+
+        Toast.makeText(getActivity(), "Register Success",
+                Toast.LENGTH_SHORT).show();
+
+        getActivity().getSupportFragmentManager().popBackStack();
+    }
 
     private boolean checkSpace() {
         return nameString.equals("")
-                ||surNameString.equals("")
-                ||emailString.equals("")
-                ||passwordString.equals("")
-                ||phoneString.equals("");
+                || surNameString.equals("")
+                || emailString.equals("")
+                || passwordString.equals("")
+                || phoneString.equals("");
     }
 
     @Nullable
