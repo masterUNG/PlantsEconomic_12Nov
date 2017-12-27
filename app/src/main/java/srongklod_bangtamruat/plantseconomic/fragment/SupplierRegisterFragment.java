@@ -104,13 +104,15 @@ public class SupplierRegisterFragment extends Fragment {
                 dialogInterface.dismiss();
             }
 
-            private void uploadValueFirebase() {
 
-            }
         });
         builder.show();
 
     }//ConfirmValue
+
+    private void uploadValueFirebase() {
+
+    }
 
     private boolean checkSpace() {
         return companyString.equals("")||addressString.equals("")||faxString.equals("")||
