@@ -11,6 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import srongklod_bangtamruat.plantseconomic.R;
 import srongklod_bangtamruat.plantseconomic.utility.MyAlert;
@@ -22,6 +28,7 @@ import srongklod_bangtamruat.plantseconomic.utility.MyAlert;
 public class CustomerRegisterFragment extends Fragment {
     //    Explicit
     private String nameString, surNameString, emailString, passwordString, phoneString;
+    private FirebaseAuth firebaseAuth;
 
 
     @Override
@@ -101,8 +108,31 @@ public class CustomerRegisterFragment extends Fragment {
     }//ConfirmValue
 
     private void uploadValueFirebase() {
+//        Add to Authentication
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth.createUserWithEmailAndPassword(emailString,passwordString)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
 
-    }
+                        if (task.isSuccessful()) {
+//                            Register Success
+                            Toast.makeText(getActivity(),"Register Success",
+                                    Toast.LENGTH_SHORT).show();
+                            getActivity().getSupportFragmentManager().popBackStack();
+                        } else {
+//                            Something Error
+                            String resultError = task.getException().getMessage();
+                            MyAlert myAlert = new MyAlert(getActivity());
+                            myAlert.nomalDialog("Cannot Register",resultError);
+                        }
+
+                    }//OnComplete
+                });
+
+//        Add to database
+
+    }//uploadValueFirebase
 
     private boolean checkSpace() {
         return nameString.equals("")
