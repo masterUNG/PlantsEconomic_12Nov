@@ -1,5 +1,6 @@
 package srongklod_bangtamruat.plantseconomic.fragment;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -41,6 +42,7 @@ public class CustomerRegisterFragment extends Fragment {
     private CustomerModel customerModel;
     private FirebaseUser firebaseUser;
     private UserProfileChangeRequest userProfileChangeRequest;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -120,6 +122,10 @@ public class CustomerRegisterFragment extends Fragment {
 
     private void uploadValueFirebase() {
 
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setTitle("Please Wait few Minus...");
+        progressDialog.show();
+
 //        Add to Authentication
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(emailString, passwordString)
@@ -180,13 +186,10 @@ public class CustomerRegisterFragment extends Fragment {
 
 
 
-
-
-
-
-
         Toast.makeText(getActivity(), "Register Success",
                 Toast.LENGTH_SHORT).show();
+        progressDialog.dismiss();
+
 
         getActivity().getSupportFragmentManager().popBackStack();
     }
