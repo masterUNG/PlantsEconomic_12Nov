@@ -16,10 +16,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -133,23 +135,23 @@ public class TransportRegisterFragment extends Fragment {
 //        For Authentication
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(emailString, passwordString)
-        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if (task.isSuccessful()) {
+                        if (task.isSuccessful()) {
 
-                    completeTask();
+                            completeTask();
 
-                } else {
-                    String resultError = task.getException().getMessage();
-                    MyAlert myAlert = new MyAlert(getActivity());
-                    myAlert.nomalDialog("Cannot Upload Transport", resultError);
+                        } else {
+                            String resultError = task.getException().getMessage();
+                            MyAlert myAlert = new MyAlert(getActivity());
+                            myAlert.nomalDialog("Cannot Upload Transport", resultError);
 
-                }
+                        }
 
-            }
-        });
+                    }
+                });
 
     }
 
@@ -162,19 +164,43 @@ public class TransportRegisterFragment extends Fragment {
         Log.d(tag, "uid of Current Login ==>" + uidUserString);
 
 //        Setup Model
-        transportModel = new TransportModel(uidUserString, companyString, addressString, faxString, telephoneString,
-                branchString, headquarterString);
+        transportModel = new TransportModel(
+                uidUserString,
+                companyString,
+                addressString,
+                faxString,
+                telephoneString,
+                branchString,
+                headquarterString);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Transport");
-        databaseReference.child(uidUserString).setValue(transportModel);
+        UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest
+                .Builder().setDisplayName(companyString).build();
+
+        firebaseUser.updateProfile(userProfileChangeRequest).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("Transport");
+                databaseReference.child(uidUserString).setValue(transportModel);
 
 //        For Authentication
-        Toast.makeText(getActivity(),"Upload Success",
-                Toast.LENGTH_SHORT).show();
-        progressDialog.dismiss();
+                Toast.makeText(getActivity(),"Upload Success",
+                        Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
 
-        getActivity().getSupportFragmentManager().popBackStack();
-    }
+                getActivity().getSupportFragmentManager().popBackStack();
+
+
+            }
+        });
+
+
+
+
+
+
+
+    }   // Complete Task
 
 
     private boolean checkSpace() {

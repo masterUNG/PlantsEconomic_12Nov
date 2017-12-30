@@ -49,6 +49,21 @@ public class MainFragment extends Fragment{
 
     }//Main Method
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        try {
+
+            FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+            firebaseAuth.signOut();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     private void signInController() {
 
         Button button = getView().findViewById(R.id.btnSignIn);
