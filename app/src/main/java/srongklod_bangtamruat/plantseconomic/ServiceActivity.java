@@ -15,6 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import srongklod_bangtamruat.plantseconomic.fragment.CustomerShowFragment;
 import srongklod_bangtamruat.plantseconomic.utility.CustomerModel;
 import srongklod_bangtamruat.plantseconomic.utility.Myconstan;
 
@@ -90,7 +91,12 @@ public class ServiceActivity extends AppCompatActivity {
 
                             }
 
-                        }
+                            getSupportFragmentManager().beginTransaction()
+                                    .add(R.id.contentServiceFragment,
+                                            CustomerShowFragment.
+                                                    customerShowInstance(customerStrings)).commit();
+
+                        }//if
 
 
                     }//for
