@@ -20,6 +20,7 @@ import srongklod_bangtamruat.plantseconomic.fragment.SupplierShowFragment;
 import srongklod_bangtamruat.plantseconomic.utility.CustomerModel;
 import srongklod_bangtamruat.plantseconomic.utility.Myconstan;
 import srongklod_bangtamruat.plantseconomic.utility.SupplierModel;
+import srongklod_bangtamruat.plantseconomic.utility.TransportModel;
 
 public class ServiceActivity extends AppCompatActivity {
 
@@ -50,8 +51,68 @@ public class ServiceActivity extends AppCompatActivity {
         findUserUidSupplier();
 
 //        Find UserUid in Transport
+        findUserUidTransport();
+
 
     }//Main Method
+
+    private void findUserUidTransport() {
+
+        if (statusABoolean) {
+
+            Myconstan myconstan = new Myconstan();
+            String[] fieldStrings = myconstan.getFieldTransportStrings();
+            final String[] transportStrings = new String[fieldStrings.length];
+
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                    .getReference()
+                    .child("Transportation");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    List list = new ArrayList();
+                    int i = 0;
+
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                        TransportModel transportModel = dataSnapshot1.getValue(TransportModel.class);
+                        list.add(transportModel);
+
+                        TransportModel transportModel1 = (TransportModel) list.get(i);
+
+                        if (userUidString.equals(transportModel1.getUidUserString())) {
+
+                            statusABoolean = false;
+
+                            transportStrings[0]=transportModel1.getAddressString();
+                            transportStrings[1]=transportModel1.getBranchString();
+                            transportStrings[2]=transportModel1.getCompanyString();
+                            transportStrings[3]=transportModel1.getFaxString();
+                            transportStrings[4]=transportModel1.getHeadquarterString();
+                            transportStrings[5]=transportModel1.getTelephoneString();
+                            transportStrings[6]=transportModel1.getUidUserString();
+
+
+                        }//if
+
+                        i = i + 1;
+                    }//for
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+
+
+                }
+            });
+
+
+        }//if
+
+    }
 
     private void findUserUidSupplier() {
 
@@ -79,13 +140,13 @@ public class ServiceActivity extends AppCompatActivity {
 
                         if (userUidString.equals(supplierModel1.getUidUserString())) {
                             statusABoolean = false;
-                            supplyStrings[0] = supplierModel.getAddressString();
-                            supplyStrings[1] = supplierModel.getBussinessString();
-                            supplyStrings[2] = supplierModel.getCompanyString();
-                            supplyStrings[3] = supplierModel.getFaxString();
-                            supplyStrings[4] = supplierModel.getHeadquartersString();
-                            supplyStrings[5] = supplierModel.getTelephoneString();
-                            supplyStrings[6] = supplierModel.getUidUserString();
+                            supplyStrings[0] = supplierModel1.getAddressString();
+                            supplyStrings[1] = supplierModel1.getBussinessString();
+                            supplyStrings[2] = supplierModel1.getCompanyString();
+                            supplyStrings[3] = supplierModel1.getFaxString();
+                            supplyStrings[4] = supplierModel1.getHeadquartersString();
+                            supplyStrings[5] = supplierModel1.getTelephoneString();
+                            supplyStrings[6] = supplierModel1.getUidUserString();
 
                             getSupportFragmentManager()
                                     .beginTransaction()
