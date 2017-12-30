@@ -6,20 +6,20 @@ package srongklod_bangtamruat.plantseconomic.utility;
 
 public class SupplierModel {
 
-    private String uidSupplierString,companyString,addressString,faxString,telephoneString,
+    private String uidUserString,companyString,addressString,faxString,telephoneString,
     bussinessString, headquartersString;
 
     public SupplierModel() {
     }
 
-    public SupplierModel(String uidSupplierString,
+    public SupplierModel(String uidUserString,
                          String companyString,
                          String addressString,
                          String faxString,
                          String telephoneString,
                          String bussinessString,
                          String headquartersString) {
-        this.uidSupplierString = uidSupplierString;
+        this.uidUserString = uidUserString;
         this.companyString = companyString;
         this.addressString = addressString;
         this.faxString = faxString;
@@ -28,12 +28,12 @@ public class SupplierModel {
         this.headquartersString = headquartersString;
     }
 
-    public String getUidSupplierString() {
-        return uidSupplierString;
+    public String getUidUserString() {
+        return uidUserString;
     }
 
-    public void setUidSupplierString(String uidSupplierString) {
-        this.uidSupplierString = uidSupplierString;
+    public void setUidUserString(String uidUserString) {
+        this.uidUserString = uidUserString;
     }
 
     public String getCompanyString() {

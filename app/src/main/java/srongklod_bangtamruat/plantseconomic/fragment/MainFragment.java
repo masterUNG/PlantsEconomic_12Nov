@@ -1,9 +1,11 @@
 package srongklod_bangtamruat.plantseconomic.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import srongklod_bangtamruat.plantseconomic.R;
+import srongklod_bangtamruat.plantseconomic.ServiceActivity;
 import srongklod_bangtamruat.plantseconomic.utility.MyAlert;
 
 /**
@@ -29,6 +33,7 @@ public class MainFragment extends Fragment{
 //    Explicit
     private String emailString, passwordString;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
 
 
 //    Main Method
@@ -94,6 +99,18 @@ public class MainFragment extends Fragment{
 //                    Sign In Success
                     Toast.makeText(getActivity(),"SignIn Success",
                             Toast.LENGTH_SHORT).show();
+
+//                    Find UserUid
+                    firebaseUser = firebaseAuth.getCurrentUser();
+                    String uidString = firebaseUser.getUid();
+                    Log.d("30DecV1", "uidString ==>" + uidString);
+
+//                    Intent to ServiceActivity
+                    Intent intent = new Intent(getActivity(), ServiceActivity.class);
+                    startActivity(intent);
+                    getActivity().finish();//close
+
+
                 } else {
 //                    Sign In Non Success
                     String result = task.getException().getMessage();

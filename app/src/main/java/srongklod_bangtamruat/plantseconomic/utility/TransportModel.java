@@ -6,20 +6,20 @@ package srongklod_bangtamruat.plantseconomic.utility;
 
 public class TransportModel {
 
-    private String uidTransportString,companyString,
+    private String uidUserString,companyString,
     addressString,faxString,telephoneString,branchString,headquarterString;
 
     public TransportModel() {
     }
 
-    public TransportModel(String uidTransportString,
+    public TransportModel(String uidUserString,
                           String companyString,
                           String addressString,
                           String faxString,
                           String telephoneString,
                           String branchString,
                           String headquarterString) {
-        this.uidTransportString = uidTransportString;
+        this.uidUserString = uidUserString;
         this.companyString = companyString;
         this.addressString = addressString;
         this.faxString = faxString;
@@ -28,12 +28,12 @@ public class TransportModel {
         this.headquarterString = headquarterString;
     }
 
-    public String getUidTransportString() {
-        return uidTransportString;
+    public String getUidUserString() {
+        return uidUserString;
     }
 
-    public void setUidTransportString(String uidTransportString) {
-        this.uidTransportString = uidTransportString;
+    public void setUidUserString(String uidUserString) {
+        this.uidUserString = uidUserString;
     }
 
     public String getCompanyString() {
