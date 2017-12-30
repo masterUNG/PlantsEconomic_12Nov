@@ -176,6 +176,7 @@ public class TransportRegisterFragment extends Fragment {
         getActivity().getSupportFragmentManager().popBackStack();
     }
 
+
     private boolean checkSpace() {
         return companyString.equals("") ||
                 addressString.equals("") ||
