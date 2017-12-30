@@ -16,8 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import srongklod_bangtamruat.plantseconomic.fragment.CustomerShowFragment;
+import srongklod_bangtamruat.plantseconomic.fragment.SupplierShowFragment;
 import srongklod_bangtamruat.plantseconomic.utility.CustomerModel;
 import srongklod_bangtamruat.plantseconomic.utility.Myconstan;
+import srongklod_bangtamruat.plantseconomic.utility.SupplierModel;
 
 public class ServiceActivity extends AppCompatActivity {
 
@@ -44,8 +46,70 @@ public class ServiceActivity extends AppCompatActivity {
 //        Find user in Customer
         findUserUidinCustomer();
 
+//        Find UserUid in Supplier
+        findUserUidSupplier();
+
+//        Find UserUid in Transport
 
     }//Main Method
+
+    private void findUserUidSupplier() {
+
+        if (statusABoolean) {
+
+            Myconstan myconstan = new Myconstan();
+            String[] fieldStrings = myconstan.getFieldSupplierStrings();
+            final String[] supplyStrings = new String[fieldStrings.length];
+
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+                    .getReference().child("Supplier");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    List list = new ArrayList();
+                    int i = 0;
+
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                        SupplierModel supplierModel = dataSnapshot1.getValue(SupplierModel.class);
+                        list.add(supplierModel);
+
+                        SupplierModel supplierModel1 = (SupplierModel) list.get(i);
+
+                        if (userUidString.equals(supplierModel1.getUidUserString())) {
+                            statusABoolean = false;
+                            supplyStrings[0] = supplierModel.getAddressString();
+                            supplyStrings[1] = supplierModel.getBussinessString();
+                            supplyStrings[2] = supplierModel.getCompanyString();
+                            supplyStrings[3] = supplierModel.getFaxString();
+                            supplyStrings[4] = supplierModel.getHeadquartersString();
+                            supplyStrings[5] = supplierModel.getTelephoneString();
+                            supplyStrings[6] = supplierModel.getUidUserString();
+
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .add(R.id.contentServiceFragment, SupplierShowFragment
+                                            .supplierShowInstance(supplyStrings)).commit();
+
+
+
+                        }//if
+
+                        i=i+1;
+                    }   //for
+
+                }//onDataChang
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        }//if
+
+    }
 
     private void findUserUidinCustomer() {
         if (statusABoolean) {
