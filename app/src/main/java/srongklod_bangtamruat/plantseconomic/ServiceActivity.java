@@ -2,6 +2,7 @@ package srongklod_bangtamruat.plantseconomic;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,7 +35,7 @@ public class ServiceActivity extends AppCompatActivity {
 
     //    General
     private String tag = "30DecV1";
-    private String userUidString;
+    private String userUidString,titleToolbarString,subTitleToolbarString;
     private boolean statusABoolean = true; // true ==> Don't Find userUid ?
 
 
@@ -58,6 +59,16 @@ public class ServiceActivity extends AppCompatActivity {
 
 
     }   // Main Method
+
+    private void createToolbar() {
+
+        Toolbar toolbar = findViewById(R.id.toolbarService);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(titleToolbarString);
+        getSupportActionBar().setSubtitle(subTitleToolbarString);
+
+    }
 
     private void findUserUidinTransport() {
 
@@ -100,7 +111,10 @@ public class ServiceActivity extends AppCompatActivity {
                                 Log.d("31DecV1", "transportString[" + i1 + "] => " + transportStrings[i1]);
                             }
 
+                            titleToolbarString = "Transport";
+                            subTitleToolbarString = transportStrings[2];
 
+                            createToolbar();
 
                             getSupportFragmentManager()
                                     .beginTransaction()
@@ -161,6 +175,11 @@ public class ServiceActivity extends AppCompatActivity {
                             supplyStrings[5] = supplierModel1.getTelephoneString();
                             supplyStrings[6] = supplierModel1.getUidUserString();
 
+                            titleToolbarString = "Supplier";
+                            subTitleToolbarString = supplyStrings[2];
+
+                            createToolbar();
+
                             getSupportFragmentManager()
                                     .beginTransaction()
                                     .add(R.id.contentServiceFragment, SupplierShowFragment.supplierShowInstance(supplyStrings))
@@ -214,10 +233,8 @@ public class ServiceActivity extends AppCompatActivity {
                         Log.d(tag, "Name[" + timesAInt + "] ==> " + customerModel1.getNameString());
                         timesAInt = timesAInt + 1;
 
-
                         if (userUidString.equals(customerModel1.getUidUserString())) {
                             statusABoolean = false;
-
                             customerStrings[0] = customerModel1.getLastNameString();
                             customerStrings[1] = customerModel1.getNameString();
                             customerStrings[2] = customerModel1.getPhoneString();
@@ -226,6 +243,11 @@ public class ServiceActivity extends AppCompatActivity {
                             for (int i = 0; i < customerStrings.length; i += 1) {
                                 Log.d(tag, "custom[" + i + "] ==> " + customerStrings[i]);
                             }
+
+                            titleToolbarString = "Customer";
+                            subTitleToolbarString = customerStrings[1] + " " + customerStrings[0];
+
+                            createToolbar();
 
                             getSupportFragmentManager().beginTransaction()
                                     .add(R.id.contentServiceFragment,
