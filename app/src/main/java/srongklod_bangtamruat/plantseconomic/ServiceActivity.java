@@ -17,7 +17,9 @@ import java.util.List;
 
 import srongklod_bangtamruat.plantseconomic.fragment.CustomerShowFragment;
 import srongklod_bangtamruat.plantseconomic.fragment.SupplierShowFragment;
+import srongklod_bangtamruat.plantseconomic.fragment.TransportShowFragment;
 import srongklod_bangtamruat.plantseconomic.utility.CustomerModel;
+import srongklod_bangtamruat.plantseconomic.utility.Myconstan;
 import srongklod_bangtamruat.plantseconomic.utility.Myconstan;
 import srongklod_bangtamruat.plantseconomic.utility.SupplierModel;
 import srongklod_bangtamruat.plantseconomic.utility.TransportModel;
@@ -30,10 +32,10 @@ public class ServiceActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser;
 
 
-//    General
+    //    General
     private String tag = "30DecV1";
     private String userUidString;
-    private boolean statusABoolean = true;//true >Don'Find userUid?
+    private boolean statusABoolean = true; // true ==> Don't Find userUid ?
 
 
     @Override
@@ -41,32 +43,34 @@ public class ServiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
 
-//        Find User Uid
+//        Find User uid
         findUserUid();
 
-//        Find user in Customer
+//        Find userUid in Customer
         findUserUidinCustomer();
 
-//        Find UserUid in Supplier
-        findUserUidSupplier();
-
-//        Find UserUid in Transport
-        findUserUidTransport();
+//        Find userUid in Supplier
+        findUserUidinSupplier();
 
 
-    }//Main Method
+//        Find userUid in Transport
+        findUserUidinTransport();
 
-    private void findUserUidTransport() {
+
+    }   // Main Method
+
+    private void findUserUidinTransport() {
+
+        Log.d("31DecV1", "status ==> " + statusABoolean);
 
         if (statusABoolean) {
 
-            Myconstan myconstan = new Myconstan();
-            String[] fieldStrings = myconstan.getFieldTransportStrings();
+            Myconstan myConstant = new Myconstan();
+            String[] fieldStrings = myConstant.getFieldTransportStrings();
             final String[] transportStrings = new String[fieldStrings.length];
 
             DatabaseReference databaseReference = FirebaseDatabase.getInstance()
-                    .getReference()
-                    .child("Transportation");
+                    .getReference().child("Transport");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -84,42 +88,50 @@ public class ServiceActivity extends AppCompatActivity {
                         if (userUidString.equals(transportModel1.getUidUserString())) {
 
                             statusABoolean = false;
+                            transportStrings[0] = transportModel1.getAddressString();
+                            transportStrings[1] = transportModel1.getBranchString();
+                            transportStrings[2] = transportModel1.getCompanyString();
+                            transportStrings[3] = transportModel1.getFaxString();
+                            transportStrings[4] = transportModel1.getHeadquarterString();
+                            transportStrings[5] = transportModel1.getTelephoneString();
+                            transportStrings[6] = transportModel1.getUidUserString();
 
-                            transportStrings[0]=transportModel1.getAddressString();
-                            transportStrings[1]=transportModel1.getBranchString();
-                            transportStrings[2]=transportModel1.getCompanyString();
-                            transportStrings[3]=transportModel1.getFaxString();
-                            transportStrings[4]=transportModel1.getHeadquarterString();
-                            transportStrings[5]=transportModel1.getTelephoneString();
-                            transportStrings[6]=transportModel1.getUidUserString();
+                            for (int i1=0; i1<transportStrings.length; i1+=1) {
+                                Log.d("31DecV1", "transportString[" + i1 + "] => " + transportStrings[i1]);
+                            }
 
 
-                        }//if
+
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .add(R.id.contentServiceFragment, TransportShowFragment.transportShowInstance(transportStrings))
+                                    .commit();
+
+
+                        }   // if
 
                         i = i + 1;
-                    }//for
+
+                    }   // for
 
                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
-
-
                 }
             });
 
-
-        }//if
+        }   // if
 
     }
 
-    private void findUserUidSupplier() {
+    private void findUserUidinSupplier() {
 
         if (statusABoolean) {
 
-            Myconstan myconstan = new Myconstan();
-            String[] fieldStrings = myconstan.getFieldSupplierStrings();
+            Myconstan myConstant = new Myconstan();
+            String[] fieldStrings = myConstant.getFieldSupplierStrings();
             final String[] supplyStrings = new String[fieldStrings.length];
 
             DatabaseReference databaseReference = FirebaseDatabase.getInstance()
@@ -139,6 +151,7 @@ public class ServiceActivity extends AppCompatActivity {
                         SupplierModel supplierModel1 = (SupplierModel) list.get(i);
 
                         if (userUidString.equals(supplierModel1.getUidUserString())) {
+
                             statusABoolean = false;
                             supplyStrings[0] = supplierModel1.getAddressString();
                             supplyStrings[1] = supplierModel1.getBussinessString();
@@ -150,17 +163,17 @@ public class ServiceActivity extends AppCompatActivity {
 
                             getSupportFragmentManager()
                                     .beginTransaction()
-                                    .add(R.id.contentServiceFragment, SupplierShowFragment
-                                            .supplierShowInstance(supplyStrings)).commit();
+                                    .add(R.id.contentServiceFragment, SupplierShowFragment.supplierShowInstance(supplyStrings))
+                                    .commit();
 
+                        }   // if
 
+                        i = i + 1;
 
-                        }//if
-
-                        i=i+1;
                     }   //for
 
-                }//onDataChang
+
+                }   // onDatachange
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
@@ -168,17 +181,17 @@ public class ServiceActivity extends AppCompatActivity {
                 }
             });
 
-        }//if
+        }   // if
 
     }
 
     private void findUserUidinCustomer() {
         if (statusABoolean) {
 
-           // FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            //   FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
-            Myconstan myconstan = new Myconstan();
-            String[] fieldStrings = myconstan.getFieldCustomerStrings();
+            Myconstan myConstant = new Myconstan();
+            String[] fieldStrings = myConstant.getFieldCustomerStrings();
             final String[] customerStrings = new String[fieldStrings.length];
 
             DatabaseReference databaseReference = FirebaseDatabase.getInstance()
@@ -197,10 +210,10 @@ public class ServiceActivity extends AppCompatActivity {
                         list.add(customerModel);
 
 
-
                         CustomerModel customerModel1 = (CustomerModel) list.get(timesAInt);
-                        Log.d(tag,"Name ["+timesAInt+"]==>"+customerModel1.getNameString());
+                        Log.d(tag, "Name[" + timesAInt + "] ==> " + customerModel1.getNameString());
                         timesAInt = timesAInt + 1;
+
 
                         if (userUidString.equals(customerModel1.getUidUserString())) {
                             statusABoolean = false;
@@ -210,44 +223,41 @@ public class ServiceActivity extends AppCompatActivity {
                             customerStrings[2] = customerModel1.getPhoneString();
                             customerStrings[3] = customerModel1.getUidUserString();
 
-                            for (int i=0;i<customerStrings.length;i+=1) {
-                                Log.d(tag, "customer[" + i + "]==>" + customerStrings[i]);
-
-
+                            for (int i = 0; i < customerStrings.length; i += 1) {
+                                Log.d(tag, "custom[" + i + "] ==> " + customerStrings[i]);
                             }
 
                             getSupportFragmentManager().beginTransaction()
                                     .add(R.id.contentServiceFragment,
-                                            CustomerShowFragment.
-                                                    customerShowInstance(customerStrings)).commit();
+                                            CustomerShowFragment.customerShowInstance(customerStrings))
+                                    .commit();
 
-                        }//if
+                        }   // if
 
+                    }   // for
 
-                    }//for
+                    Log.d(tag, "Status ==> " + statusABoolean);
 
-                    Log.d(tag, "Status ==>" + statusABoolean);
-
-                }//onDataChange
+                }   // onDataChange
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
-
-
                 }
             });
 
-        }//if
 
+        }   // if
     }
 
     private void findUserUid() {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         userUidString = firebaseUser.getUid();
-        String displayName = firebaseUser.getDisplayName();
-        Log.d(tag, "At Service userUid ==>" + userUidString);
-        Log.d(tag, "disPlayName ==>" + displayName);
+        String disPlayName = firebaseUser.getDisplayName();
+        Log.d(tag, "at Service userUid ==> " + userUidString);
+        Log.d(tag, "disPlayName ==> " + disPlayName);
     }
-}//Main Class
+
+
+}   // Main Class
