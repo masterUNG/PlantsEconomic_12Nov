@@ -12,7 +12,7 @@
         <!--Image-->
         <ImageView
             android:scaleType="centerCrop"
-            android:src="@drawable/customer"
+            android:src="@drawable/icon_customer"
             android:layout_width="match_parent"
             android:layout_height="150dp" />
 

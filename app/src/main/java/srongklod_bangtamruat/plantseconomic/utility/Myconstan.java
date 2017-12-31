@@ -9,9 +9,9 @@ import srongklod_bangtamruat.plantseconomic.R;
 public class Myconstan {
 
     private int[] iconCustomerInts = new int[]{
-            R.drawable.custom1,R.drawable.custom2,
-            R.drawable.custom3,R.drawable.custom4,
-            R.drawable.custom5, R.drawable.custom6,};
+            R.drawable.customer_home,R.drawable.customer_friend,
+            R.drawable.customer_message,R.drawable.customer_news,
+            R.drawable.customer_shops, R.drawable.customer_chat,};
 
     private String[] titleCustomerStrings = new String[]{"Home","AddFriend","Massage","News","Shops","Chat"};
 
