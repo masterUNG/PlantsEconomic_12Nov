@@ -27,5 +27,7 @@
     <string name="close">Close drawer</string>
     <string name="message_choose_image">Please Choose App Choose Image</string>
 
+    <string name="message_success">Thank You Upload Image Success</string>
+
 
 </resources>
