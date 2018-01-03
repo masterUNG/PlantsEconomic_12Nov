@@ -8,6 +8,8 @@ import srongklod_bangtamruat.plantseconomic.R;
 
 public class Myconstan {
 
+
+
     private int[] iconCustomerInts = new int[]{
             R.drawable.customer_home,R.drawable.customer_friend,
             R.drawable.customer_message,R.drawable.customer_news,
