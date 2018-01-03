@@ -4,7 +4,101 @@
     android:layout_height="match_parent">
 
     <!--Content Customer-->
+    <LinearLayout
+        android:padding="@dimen/padding"
+        android:layout_margin="@dimen/margin"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <!--Avatar-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imvAvatar"
+            android:src="@drawable/avatar"
+            android:layout_margin="@dimen/margin"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/avatar"
+            android:layout_height="@dimen/avatar" />
+
+        <!--Name-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@drawable/ic_action_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--Text-->
+            <TextView
+                android:id="@+id/txtName"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_gravity="center_vertical"
+                android:text="@string/name"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--LastName-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@drawable/ic_action_lastname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--Text-->
+            <TextView
+                android:id="@+id/txtLastName"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_gravity="center_vertical"
+                android:text="@string/lastname"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+        <!--Phone-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@drawable/ic_action_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--Text-->
+            <TextView
+                android:id="@+id/txtPhone"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginLeft="@dimen/padding"
+                android:layout_gravity="center_vertical"
+                android:text="@string/phone_66812345678"
+                android:textSize="@dimen/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>
