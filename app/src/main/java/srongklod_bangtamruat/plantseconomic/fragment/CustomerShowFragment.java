@@ -78,10 +78,39 @@ public class CustomerShowFragment extends Fragment {
     }//Main Method
 
     private void showImage() {
-        String urlImage = "https://firebasestorage.googleapis.com/v0/b/plantseconomic-217ea.appspot.com/o/Avatar%2FkIjgLgwvXVRaqNOO9j0xfJTC4R02?alt=media&token=ebda7139-8a11-4278-b7b8-3303f8a84cac";
 
-        circleImageView = getView().findViewById(R.id.imvAvatar);
-        Picasso.with(getActivity()).load(urlImage).into(circleImageView);
+        final String tag = "3JanV2";
+
+        try {
+
+            FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+            StorageReference storageReference = firebaseStorage.getReference();
+            storageReference.child("Avatar/kIjgLgwvXVRaqNOO9j0xfJTC4R02.jpg").getDownloadUrl()
+                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+
+                            Log.d(tag, "uri ==> " + uri.toString());
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                    Log.d(tag, "e onFailure ==>" + e.toString());
+
+                }
+            });
+
+            String urlImage = "https://firebasestorage.googleapis.com/v0/b/plantseconomic-217ea.appspot.com/o/Avatar%2FkIjgLgwvXVRaqNOO9j0xfJTC4R02?alt=media&token=ebda7139-8a11-4278-b7b8-3303f8a84cac";
+
+
+            circleImageView = getView().findViewById(R.id.imvAvatar);
+            Picasso.with(getActivity()).load(urlImage).into(circleImageView);
+
+        } catch (Exception e) {
+            Log.d(tag, "e ==> " + e.toString());
+        }
 
 
     }

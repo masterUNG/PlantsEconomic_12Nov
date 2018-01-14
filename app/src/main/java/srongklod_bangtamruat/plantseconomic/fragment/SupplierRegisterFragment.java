@@ -37,7 +37,8 @@ public class SupplierRegisterFragment extends Fragment {
     //    Explicit
     private String companyString, addressString, faxString,
             telephoneString, businessString, emailString,
-            passwordString, headQuartersString,uidUserString;
+            passwordString, headQuartersString,uidUserString,
+            statusString;//0 ==> Free, 1 ==> Wait ,2 ==> VIP
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private DatabaseReference databaseReference;
@@ -98,6 +99,10 @@ public class SupplierRegisterFragment extends Fragment {
 
     private void confirmValue() {
 
+        CharSequence[] charSequences = new CharSequence[]{"Free 4 Item","VIP 100 Item"};
+        final boolean[] chooseBoolean = new boolean[] {false};//false ==> Not Choose Status, True ==> Choose
+        final String[] chooseStrings = new String[]{"0", "1"};
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setIcon(R.drawable.ic_action_upload);
         builder.setCancelable(false);
@@ -109,19 +114,44 @@ public class SupplierRegisterFragment extends Fragment {
         "Business = "+businessString+"\n"+
         "Email = "+emailString+"\n"+
         "Password = "+passwordString+"\n"+
-        "Head Quarters = "+headQuartersString);
+        "Head Quarters = "+headQuartersString+"\n"+"\n"+
+                "Please Choose Status");
 
-        builder.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+        builder.setSingleChoiceItems(charSequences, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                statusString = chooseStrings[i];
+                chooseBoolean[0] = true;
+
+            }
+        });
+
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
             }
         });
-        builder.setPositiveButton("Confrim", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                uploadValueFirebase();
-                dialogInterface.dismiss();
+
+                if (chooseBoolean[0]) {
+//                    Choose Status
+                    uploadValueFirebase();
+                    dialogInterface.dismiss();
+
+                } else {
+//                    Non Choose
+                    Toast.makeText(getActivity(),"Cannot Register Please Choose Status",
+                            Toast.LENGTH_LONG).show();
+                    dialogInterface.dismiss();
+
+                }
+
+
             }
 
 
