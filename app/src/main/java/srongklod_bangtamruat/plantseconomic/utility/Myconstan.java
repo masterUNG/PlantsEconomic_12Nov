@@ -18,9 +18,16 @@ public class Myconstan {
             R.drawable.customer_message,R.drawable.customer_news,
             R.drawable.customer_shops};
 
+    private int[] iconTransport = new int[]{
+            R.drawable.customer_home,
+            R.drawable.customer_message,R.drawable.customer_news,
+            R.drawable.customer_shops};
+
     private String[] titleCustomerStrings = new String[]{"Home","AddFriend","Massage","News","Shops","Chat"};
 
     private String[] titleSupplierStrings = new String[]{"Home","Massage","News","Shops"};
+
+    private String[] titleTransportStrings = new String[]{"Home","Massage","Package","Logistic"};
 
 
 
@@ -56,6 +63,14 @@ public class Myconstan {
             "telephoneString ",
             "uidUserString "};
 
+
+    public int[] getIconTransport() {
+        return iconTransport;
+    }
+
+    public String[] getTitleTransportStrings() {
+        return titleTransportStrings;
+    }
 
     public int[] getIconSupplier() {
         return iconSupplier;

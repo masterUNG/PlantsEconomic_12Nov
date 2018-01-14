@@ -17,7 +17,8 @@ import srongklod_bangtamruat.plantseconomic.utility.Myconstan;
  * Created by Administrator on 14/1/2561.
  */
 
-public class DrawerMenuSupplierFragment extends Fragment{
+public class DrawerMenuTransportFragment extends Fragment{
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -35,10 +36,10 @@ public class DrawerMenuSupplierFragment extends Fragment{
         Myconstan myconstan = new Myconstan();
 
 //        Icon
-        int[] ints = myconstan.getIconSupplier();
+        int[] ints = myconstan.getIconTransport();
 
 //        Title
-        String[] strings = myconstan.getTitleSupplierStrings();
+        String[] strings = myconstan.getTitleTransportStrings();
 
         DrawerListViewAdapter drawerListViewAdapter = new DrawerListViewAdapter(getActivity()
                 ,ints,strings);
@@ -50,8 +51,9 @@ public class DrawerMenuSupplierFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_drawer_menu_supplier, container, false);
+        View view = inflater.inflate(R.layout.fragment_drawer_menu_transport, container, false);
 
         return view;
     }
+
 }
