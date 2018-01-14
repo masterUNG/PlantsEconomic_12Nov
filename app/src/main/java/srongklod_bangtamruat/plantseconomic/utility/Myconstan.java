@@ -61,7 +61,7 @@ public class Myconstan {
             "faxString ",
             "headquarterString ",
             "telephoneString ",
-            "uidUserString "};
+            "uidUserString ","statusString"};
 
 
     public int[] getIconTransport() {
