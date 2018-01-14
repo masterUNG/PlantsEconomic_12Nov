@@ -99,9 +99,6 @@ public class SupplierRegisterFragment extends Fragment {
 
     private void confirmValue() {
 
-        CharSequence[] charSequences = new CharSequence[]{"Free 4 Item","VIP 100 Item"};
-        final boolean[] chooseBoolean = new boolean[] {false};//false ==> Not Choose Status, True ==> Choose
-        final String[] chooseStrings = new String[]{"0", "1"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setIcon(R.drawable.ic_action_upload);
@@ -117,15 +114,6 @@ public class SupplierRegisterFragment extends Fragment {
         "Head Quarters = "+headQuartersString+"\n"+"\n"+
                 "Please Choose Status");
 
-        builder.setSingleChoiceItems(charSequences, -1, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-                statusString = chooseStrings[i];
-                chooseBoolean[0] = true;
-
-            }
-        });
 
 
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -137,23 +125,10 @@ public class SupplierRegisterFragment extends Fragment {
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                uploadValueFirebase();
+                dialogInterface.dismiss();
 
-                if (chooseBoolean[0]) {
-//                    Choose Status
-                    uploadValueFirebase();
-                    dialogInterface.dismiss();
-
-                } else {
-//                    Non Choose
-                    Toast.makeText(getActivity(),"Cannot Register Please Choose Status",
-                            Toast.LENGTH_LONG).show();
-                    dialogInterface.dismiss();
-
-                }
-
-
-            }
-
+            }//Onclick
 
         });
         builder.show();
@@ -205,7 +180,7 @@ public class SupplierRegisterFragment extends Fragment {
 
 //        Set upModel
         supplierModel = new SupplierModel(uidUserString,companyString,addressString,faxString
-        ,telephoneString,businessString,headQuartersString);
+        ,telephoneString,businessString,headQuartersString,"0");
 
         UserProfileChangeRequest userProfileChangeRequest = new UserProfileChangeRequest
                 .Builder()
