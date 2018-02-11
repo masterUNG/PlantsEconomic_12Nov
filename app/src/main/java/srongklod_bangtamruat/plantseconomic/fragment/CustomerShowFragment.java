@@ -85,7 +85,7 @@ public class CustomerShowFragment extends Fragment {
 
             FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
             StorageReference storageReference = firebaseStorage.getReference();
-            storageReference.child("Avatar/kIjgLgwvXVRaqNOO9j0xfJTC4R02.jpg").getDownloadUrl()
+            storageReference.child("Avata/9ecx9FHQ88fETh8NnEbxkyANflH2_38.jpg").getDownloadUrl()
                     .addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -102,8 +102,7 @@ public class CustomerShowFragment extends Fragment {
                 }
             });
 
-            String urlImage = "https://firebasestorage.googleapis.com/v0/b/plantseconomic-217ea.appspot.com/o/Avatar%2FkIjgLgwvXVRaqNOO9j0xfJTC4R02?alt=media&token=ebda7139-8a11-4278-b7b8-3303f8a84cac";
-
+            String urlImage = "https://firebasestorage.googleapis.com/v0/b/plantseconomic.appspot.com/o/Avatar%2F9ecx9FHQ88fETh8NnEbxkyANflH2_92?alt=media&token=f22e3591-3339-49f6-9fa5-79801b74ee7d";
 
             circleImageView = getView().findViewById(R.id.imvAvatar);
             Picasso.with(getActivity()).load(urlImage).into(circleImageView);

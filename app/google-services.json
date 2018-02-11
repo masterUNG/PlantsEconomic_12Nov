@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "567586016227",
-    "firebase_url": "https://plantseconomic-217ea.firebaseio.com",
-    "project_id": "plantseconomic-217ea",
-    "storage_bucket": "plantseconomic-217ea.appspot.com"
+    "project_number": "222442588944",
+    "firebase_url": "https://plantseconomic.firebaseio.com",
+    "project_id": "plantseconomic",
+    "storage_bucket": "plantseconomic.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:567586016227:android:8c9d22ccebcba0c3",
+        "mobilesdk_app_id": "1:222442588944:android:8c9d22ccebcba0c3",
         "android_client_info": {
           "package_name": "srongklod_bangtamruat.plantseconomic"
         }
       },
       "oauth_client": [
         {
-          "client_id": "567586016227-qg6hu28buhjgqea5mcg0t2n633pgepfk.apps.googleusercontent.com",
+          "client_id": "222442588944-ipse4qq8ua8dbc05v4c2oe7o9j0su9pe.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "srongklod_bangtamruat.plantseconomic",
-            "certificate_hash": "f23e44e7d62ef1c3ef27047820f2e8fb9d5d0cf4"
+            "certificate_hash": "99f1de59cbbb9f0ab27aeb63c596235bc843b92a"
           }
         },
         {
-          "client_id": "567586016227-b76cjth3rso5dn9jb8c6t4uq1pf2neiq.apps.googleusercontent.com",
+          "client_id": "222442588944-3hs2311q6fv7sp2t1u4js91q97kb9jfi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCA9HDo7PX03Wh0ZGthNysiqfWNQlRhzAA"
+          "current_key": "AIzaSyDbIJJmAAdGmCOUVSvKoqHL3FkvJf3oBdE"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "567586016227-b76cjth3rso5dn9jb8c6t4uq1pf2neiq.apps.googleusercontent.com",
+              "client_id": "222442588944-3hs2311q6fv7sp2t1u4js91q97kb9jfi.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
